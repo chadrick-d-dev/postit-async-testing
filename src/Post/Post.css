@@ -1,0 +1,34 @@
+article {
+  background-color: #A27E6F;
+  width: 80%;
+  padding: 1em;
+  margin-top: .5em;
+  box-shadow: 1px 1px 2px #2B0D0B;
+}
+
+
+.post-title,
+.post-author {
+  display: inline;
+}
+
+.post-author {
+  font-size: .5em;
+  float:right;
+  padding-right: 2em;
+}
+
+.score-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+img {
+  height: 1em;
+  padding: .5em;
+}
+
+.up {
+  transform: rotate(180deg);
+}
