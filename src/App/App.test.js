@@ -31,7 +31,30 @@ describe( 'App',  () => {
   
   });
 
-  it.skip('should be able to add a new post, then add a comment to that post', () => {
+  it('should not be able to add an incomplete post to the page', () => {
+    const { queryByText, queryByRole, getByPlaceholderText } = render(
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    );
+    
+    const titleInput = getByPlaceholderText('title');
+    const contentInput = getByPlaceholderText('content');
+    const addPostBtn = queryByText('Add Post');
+
+    fireEvent.change(titleInput, {target: {value: 'Mock Idea'}})
+    fireEvent.change(contentInput, {target:{value: 'The quick brown fox jumped over the small dog.'}})
+    fireEvent.click(addPostBtn);
+
+    const newTitle = queryByRole('heading', {name: 'Mock Idea'});
+    const newContent = queryByRole('The quick brown', {exact: false});
+
+    expect(newTitle).not.toBeInTheDocument();
+    expect(newContent).not.toBeInTheDocument();
+  
+  });
+
+  it('should be able to add a new post, then add a comment to that post', () => {
     const { getByText, getByRole, getByPlaceholderText, getAllByAltText } = render(
       <BrowserRouter>
         <App />
@@ -63,7 +86,7 @@ describe( 'App',  () => {
     expect(newComment).toBeInTheDocument();
   });
 
-  it('should be able to load all posts, then add a comment to an existing post', () => {
+  it.skip('should be able to load all posts, then add a comment to an existing post', () => {
     const { getByText, getByRole, getByPlaceholderText, getAllByAltText, debug } = render(
       <BrowserRouter>
         <App />
@@ -86,6 +109,10 @@ describe( 'App',  () => {
     
     expect(newComment).toBeInTheDocument();
   
+  });
+
+  it.skip('should route to a 404 page if the user goes to a bad url', () => {
+   // what should we test here? 
   });
 
 });
