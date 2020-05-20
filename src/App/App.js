@@ -95,9 +95,6 @@ class App extends Component {
           exact
           path="/posts/:id"
           render={({ match }) => {
-            // How can you get the :id from the url?
-            console.log(match.params.id);
-            //once we have the id, we can use it to find the correct post
             const postToRender = this.state.posts.find(
               post => post.id === parseInt(match.params.id)
             );

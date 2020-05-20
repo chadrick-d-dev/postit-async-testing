@@ -20,7 +20,6 @@ class CommentForm extends Component {
       content: this.state.input,
       parentPost: this.props.postId
     };
-    console.log(id);
     this.props.addComment(comment);
     this.setState({ input: "" });
   };
