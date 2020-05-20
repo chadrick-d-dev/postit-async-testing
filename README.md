@@ -17,6 +17,9 @@ We'll use this repo to review some testing concepts including:
 
 5. run `npm test` to start tests
 
+## Code Sand Box:
+Or fork the template found [here](https://codesandbox.io/s/github/turingschool-examples/post-it-testing)
+
 ## Credits: 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
