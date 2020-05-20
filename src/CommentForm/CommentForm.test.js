@@ -3,7 +3,7 @@ import CommentForm from './CommentForm';
 import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
-describe('CommentForm', () => {
+describe.skip('CommentForm', () => {
   it('should render a form', () => {
   
   });

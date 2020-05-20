@@ -1,7 +1,7 @@
 import React from 'react';
 import Post from './Post';
 
-describe('Post', () => {
+describe.skip('Post', () => {
   it('Should render a post correctly', () => {
   
   });

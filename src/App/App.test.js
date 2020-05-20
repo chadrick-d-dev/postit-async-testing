@@ -31,18 +31,7 @@ describe( 'App',  () => {
   
   });
 
-  it('should be able to increment the score of a new card after adding it to the page', () => {
-    // this should maybe be tested at a unit level?
-
-
-  
-  });
-
-  it('should be able to decrement the score of a new card after adding it to the page', () => {
-  
-  });
-
-  it('should be able to add a new post, then add a comment to that post', () => {
+  it.skip('should be able to add a new post, then add a comment to that post', () => {
     const { getByText, getByRole, getByPlaceholderText, getAllByAltText } = render(
       <BrowserRouter>
         <App />

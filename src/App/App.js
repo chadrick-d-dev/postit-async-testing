@@ -95,9 +95,11 @@ class App extends Component {
           exact
           path="/posts/:id"
           render={({ match }) => {
+            //console.log(match.params.id)
             const postToRender = this.state.posts.find(
               post => post.id === parseInt(match.params.id)
             );
+            //console.log(postToRender)
             return (
               <PostView
                 post={postToRender}
