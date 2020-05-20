@@ -1,12 +1,25 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Testing Review:
 
-# Testing Review
+We'll use this repo to review some testing concepts including:
 
+- Testing with Router
+- DRYing up React Tests
 
-## Instructions:
-This app is meant to be a playground for testing. The implementation code is all written out, and there are empty it blocks in test files. 
+## Set Up Instructions:
 
-Your goal is to fill out all the it blocks with appropriate tests. If prompted, you should be able to explain why we're testing a certain feature as described by the it blocks.
+1. git clone this repo
+
+2. cd into the repo
+
+3. run `npm install`
+
+4. run `npm start` to run dev server
+
+5. run `npm test` to start tests
 
 ## Credits: 
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+
