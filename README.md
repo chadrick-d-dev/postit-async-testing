@@ -18,7 +18,7 @@ We'll use this repo to review some testing concepts including:
 5. run `npm test` to start tests
 
 ## Code Sand Box:
-Or fork the template found [here](https://codesandbox.io/s/github/turingschool-examples/post-it-testing)
+Or fork the template found [here](https://codesandbox.io/s/github/turingschool-examples/post-it-testing/tree/main)
 
 ## Credits: 
 
