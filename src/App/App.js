@@ -8,53 +8,25 @@ import Error from '../Error/Error';
 class App extends Component {
   constructor() {
     super();
+    this.baseUlr = "https://post-it-server.herokuapp.com/api/v1"
     this.state = {
       posts: [
-        {
-          id: 1,
-          title: "First Post",
-          author: "Johnny B",
-          content: "Do the monkey",
-          score: 0,
-          comments: [
-            {
-              content: "First!",
-              id: 11,
-              parentPost: 1
-            },
-            {
-              content: "Second!",
-              id: 12,
-              parentPost: 1
-            },
-            {
-              content: "Last :(!",
-              id: 13,
-              parentPost: 1
-            }
-          ]
-        },
-        {
-          id: 2,
-          title: "I think it hailed yesterday",
-          author: "Some Fella",
-          content: "It was wild stuff",
-          score: 0,
-          comments: [
-            {
-              content: "I saw it too!",
-              id: 154,
-              parentPost: 2
-            },
-            {
-              content: "I don't believe in hail",
-              id: 12345232,
-              parentPost: 2
-            }
-          ]
-        }
       ]
     };
+  }
+
+  componentDidMount = () => {
+    fetch(`${this.baseUrl}/posts`)
+      .then(res => {
+        if(res.ok) {
+          return res.json();
+        }
+      })
+      .then(data =>{
+        console.log(data);
+        this.setState({posts: data})
+      })
+      .catch(error => console.error(error));
   }
 
   addComment = comment => {
