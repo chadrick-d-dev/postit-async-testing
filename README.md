@@ -1,9 +1,6 @@
 # Testing Review:
 
-We'll use this repo to review some testing concepts including:
-
-- Testing with Router
-- DRYing up React Tests
+We'll use this repo to practice async testing. This branch is set up to consume [this server](https://github.com/turingschool-examples/post-it-server)
 
 ## Set Up Instructions:
 
