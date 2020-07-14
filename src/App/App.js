@@ -8,7 +8,7 @@ import Error from '../Error/Error';
 class App extends Component {
   constructor() {
     super();
-    this.baseUlr = "https://post-it-server.herokuapp.com/api/v1"
+    this.baseUrl = "https://post-it-server.herokuapp.com/api/v1"
     this.state = {
       posts: [
       ]
@@ -18,22 +18,46 @@ class App extends Component {
   componentDidMount = () => {
     fetch(`${this.baseUrl}/posts`)
       .then(res => {
+        console.log(res)
         if(res.ok) {
           return res.json();
         }
       })
       .then(data =>{
         console.log(data);
-        this.setState({posts: data})
+        this.setState({posts: data.posts})
       })
       .catch(error => console.error(error));
   }
 
   addComment = comment => {
-    const postsCopy = [...this.state.posts];
-    const { parentPost } = comment;
-    postsCopy.find(post => post.id === parentPost).comments.push(comment);
-    this.setState({ posts: postsCopy });
+    const { parentPost, content } = comment;
+    fetch(`${this.baseUrl}/posts/${parentPost}/comments`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({"content":content})
+    })
+      .then(res => {
+        if (res.ok) {
+          return res.json()
+        } else {
+          throw new Error('Something went wrong')
+        }
+      })
+      .then(newPost => {
+        const postsCopy = this.state.posts.reduce((newPosts, post) => {
+          if (post.id === newPost.id) {
+             newPosts.push(newPost)
+          } else {
+            newPosts.push(post)
+          }
+          return newPosts;
+        },[])
+        this.setState( { posts: postsCopy});
+      })
+      .catch(err => console.error(err))
   };
 
   changeScore = (change, id) => {
@@ -44,7 +68,26 @@ class App extends Component {
   };
 
   addPost = newPost => {
-    this.setState({ posts: [...this.state.posts, newPost] });
+    const stringifiedBody = JSON.stringify(newPost);
+    fetch(`${this.baseUrl}/posts/`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: stringifiedBody
+    })
+      .then(res => {
+        if (res.ok) {
+          return res.json()
+        } else {
+          throw new Error('Something went wrong');
+        } 
+      })
+      .then(postedPost => {
+        this.setState({ posts: [...this.state.posts, postedPost] })
+      })
+      .catch(err => console.error(err));
+    
   };
 
   render() {
@@ -59,6 +102,7 @@ class App extends Component {
             path="/posts/:id"
             render={({ match }) => {
               //console.log(match.params.id)
+              console.log(this.state.posts);
               const postToRender = this.state.posts.find(
                 post => post.id === parseInt(match.params.id)
               );
