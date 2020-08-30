@@ -6,13 +6,15 @@ We'll use this repo to practice async testing. This branch is set up to consume 
 
 1. git clone this repo
 
-2. cd into the repo
+1. cd into the repo
 
-3. run `npm install`
+1. `git checkout async-testing`
 
-4. run `npm start` to run dev server
+1. run `npm install`
 
-5. run `npm test` to start tests
+1. run `npm start` to run dev server
+
+1. run `npm test` to start tests
 
 ## Code Sand Box:
 Or fork the template found [here](https://codesandbox.io/s/github/turingschool-examples/post-it-testing/tree/async-testing)
