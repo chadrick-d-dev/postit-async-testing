@@ -26,9 +26,6 @@ class Form extends Component {
       title: this.state.title,
       author: this.state.author,
       content: this.state.content,
-      id: Date.now(),
-      score: 0,
-      comments: []
     };
     this.props.addPost(newPost);
     this.setState({

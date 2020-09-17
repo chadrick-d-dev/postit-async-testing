@@ -3,6 +3,7 @@ import Post from '../Post/Post';
 import './Posts.css';
 
 const Posts = props => {
+  console.log(props)
   const postsToRender = props.posts.map( (post, i) => {
     return <Post {...post} key={i} changeScore={props.changeScore}/>
   });
@@ -13,5 +14,9 @@ const Posts = props => {
     </section>
   );
 };
+
+Posts.defaultProps = {
+  posts: []
+}
 
 export default Posts;
