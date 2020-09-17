@@ -8,8 +8,6 @@ We'll use this repo to practice async testing. This branch is set up to consume 
 
 1. cd into the repo
 
-1. `git checkout async-testing`
-
 1. run `npm install`
 
 1. run `npm start` to run dev server
