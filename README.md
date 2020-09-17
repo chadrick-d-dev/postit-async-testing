@@ -1,5 +1,6 @@
 # Testing Review:
 
+
 We'll use this repo to practice async testing. This branch is set up to consume [this server](https://github.com/turingschool-examples/post-it-server)
 
 ## Set Up Instructions:
@@ -28,6 +29,9 @@ In groups, we'll write tests that cover the following stories:
 
 Note that these should all be tested at the `App` component's level (ie, in `App.test.js`).
 
+## Deployment
+
+this site can be viewed live here: https://postit-deploy.herokuapp.com/
 
 ## Credits: 
 
